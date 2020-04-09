@@ -1,6 +1,6 @@
 /* This is the data we will be using to create our article components */
 /* Look over this data, then proceed to line 91*/
-const data = [
+const articleData = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
     date: 'Nov 5th, 2018',
@@ -99,6 +99,54 @@ const data = [
     <span class='expandButton'></span>
   </div>
 
+*/
+
+const createArticle = (title, date, firstParagraph, secondParagraph, thirdParagraph) => {
+
+const article = document.createElement('div');
+const articleTitle = document.createElement('h2');
+const articleDate = document.createElement('p');
+const articleP1 = document.createElement('p');
+const articleP2 = document.createElement('p');
+const articleP3 = document.createElement('p');
+const articleSpan = document.createElement('span');
+
+article.appendChild(articleTitle);
+article.appendChild(articleDate);
+article.appendChild(articleP1);
+article.appendChild(articleP2);
+article.appendChild(articleP3);
+article.appendChild(articleSpan);
+
+article.classList.add('article');
+articleTitle.classList.add('h2');
+articleDate.classList.add('date');
+articleSpan.classList.add('expandButton');
+
+articleTitle.textContent = title;
+articleDate.textContent = date;
+articleP1.textContent = firstParagraph;
+articleP2.textContent = secondParagraph;
+articleP3.textContent = thirdParagraph;
+
+
+articleSpan.addEventListener('click', () => {
+  article.classList.toggle('article-open')
+
+})
+
+return article
+
+};
+
+
+const fold = document.querySelector('.articles');
+
+articleData.forEach(data => {
+  fold.appendChild(createArticle(data.title, data.date, data.paragraphOne, data.paragraphTwo, data.paragraphThree))
+})
+
+/*
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
@@ -112,3 +160,5 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
