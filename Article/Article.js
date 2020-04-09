@@ -128,6 +128,7 @@ articleDate.textContent = date;
 articleP1.textContent = firstParagraph;
 articleP2.textContent = secondParagraph;
 articleP3.textContent = thirdParagraph;
+articleSpan.textContent = 'Expand';
 
 
 articleSpan.addEventListener('click', () => {
@@ -140,10 +141,24 @@ return article
 };
 
 
+const newArticle = {title: 'The Raven', 
+date: 'Nov 15th, 2100',
+firstParagraph: `The we implore is to entreating my, books and or floor floating i yet. Chamber press what floor there and. The this the nearly then is craven. Bird door entrance no his quoth, doubtless desert.`,
+
+secondParagraph: `Of whether it a spoke pallas him. Cushioned more shore weary cushioned dared tossed, lies reclining placid chamber the doubting a and i hope. Bore for said utters land truly sought. Hopes let angels above nights aidenn door stern his perfumed. Bends sat i stepped to his these hath the..`,
+
+thirdParagraph: `Shall the evilprophet tapping be floor truly, hath more has bosoms the floor. Him thing she bust core at fancy, above and living more and word marvelled by its, of within so thereat books and all sir be thereis. Ghost door me what fact not and dying, swung of unbroken door again nevermore more the of, raven came darkness least faintly human, me burden and.`}
+
+function pushFunction() {
+  articleData.push(newArticle)
+};
+pushFunction();
+
+
 const fold = document.querySelector('.articles');
 
 articleData.forEach(data => {
-  fold.appendChild(createArticle(data.title, data.date, data.paragraphOne, data.paragraphTwo, data.paragraphThree))
+  fold.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
 })
 
 /*
@@ -160,5 +175,3 @@ articleData.forEach(data => {
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
-
-
